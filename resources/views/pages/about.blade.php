@@ -8,5 +8,6 @@
 <body>
 <h1>hello this is test</h1>
 {{$first}} {{$last}}
+<h2>this is test about us page</h2>
 </body>
 </html>
