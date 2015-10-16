@@ -14,3 +14,9 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('about','PagesController@about');
+Route::get('contact','ContactController@contact');
+Route::get('blog','BlogController@index');
+Route::get('wpblog','WpblogController@index');
+Route::get('wpblog/create','WpblogController@create');
+Route::get('wpblog/{id}','WpblogController@show');
+Route::post('wpblog','WpblogController@store');

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class PagesController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +16,11 @@ class PagesController extends Controller
     public function index()
     {
         //
-		return "hello world";
     }
-	
-	public function about(){
-		
-		$people = array();
-		return view('pages.about',compact('people'));
+	public function contact(){
+		$first = "danish";
+		return view('pages.contact',compact('first'));
 		}
-
     /**
      * Show the form for creating a new resource.
      *

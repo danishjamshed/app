@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Blog;
 
-class PagesController extends Controller
+class WpBlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +17,12 @@ class PagesController extends Controller
     public function index()
     {
         //
-		return "hello world";
+        $vari = Blog::latest()->get();
+        return view('pages.blogs',compact('vari'));
+
     }
-	
-	public function about(){
-		
-		$people = array();
-		return view('pages.about',compact('people'));
-		}
+
+     
 
     /**
      * Show the form for creating a new resource.
@@ -33,6 +32,8 @@ class PagesController extends Controller
     public function create()
     {
         //
+
+        return view('pages.create');
     }
 
     /**
@@ -41,9 +42,13 @@ class PagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
+        $abc = Request::all();
+        
+        Blog::create($abc);
+        return redirect('wpblog');
     }
 
     /**
@@ -55,7 +60,11 @@ class PagesController extends Controller
     public function show($id)
     {
         //
-    }
+       $blog = Blog::find($id); 
+
+       return view('pages.show',compact('blog'));
+
+          }
 
     /**
      * Show the form for editing the specified resource.
